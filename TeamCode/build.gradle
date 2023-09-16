@@ -27,3 +27,22 @@ dependencies {
     implementation project(':FtcRobotController')
     annotationProcessor files('lib/OpModeAnnotationProcessor.jar')
 }
+
+repositories {
+    maven { url = "https://maven.catboy.camp" }
+    maven { url = 'https://maven.brott.dev/' }
+}
+
+android {
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform() // <--- this is the important part
+        }
+    }
+}
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    implementation 'org.ftclib.ftclib:core:2.1.1' // core
+    implementation 'org.openftc:easyopencv:1.7.0'
+    implementation 'com.acmerobotics.dashboard:dashboard:0.4.12'
+}
